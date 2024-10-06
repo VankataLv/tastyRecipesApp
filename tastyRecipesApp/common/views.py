@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
+from tastyRecipesApp.user.models import Profile
+
 
 def index(request):
 
-    context = {}
+    profile_obj = Profile.objects.first()
 
-    return render(request, 'home-page.html', context)
+    context = {'user': profile_obj}
+
+    return render(request, 'common/home-page.html', context)

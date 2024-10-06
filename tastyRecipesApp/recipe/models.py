@@ -10,11 +10,11 @@ class Recipe(models.Model):
     MIN_CUISINE_TYPE_LENGTH = 7
     MIN_VALUE_COOKING_TIME = 1
     CUISINE_TYPE_CHOICES = (
-        ('french', 'French'),
-        ('chinese', 'Chinese'),
-        ('italian', 'Italian'),
-        ('balkan', 'Balkan'),
-        ('other', 'Other'),
+        ('French', 'French'),
+        ('Chinese', 'Chinese'),
+        ('Italian', 'Italian'),
+        ('Balkan', 'Balkan'),
+        ('Other', 'Other'),
     )
 
     title = models.CharField(
@@ -26,7 +26,7 @@ class Recipe(models.Model):
     cuisine_type = models.CharField(
         blank=False, null=False,
         choices=CUISINE_TYPE_CHOICES,
-        max_length=MIN_CUISINE_TYPE_LENGTH
+        max_length=MIN_CUISINE_TYPE_LENGTH,
     )
     ingredients = models.TextField(
         blank=False, null=False,
@@ -45,4 +45,4 @@ class Recipe(models.Model):
     )
     author = models.ForeignKey(Profile,
                                on_delete=models.CASCADE,
-                               related_name='recipes')
+                               related_name='recipes',)
